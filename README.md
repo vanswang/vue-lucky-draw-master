@@ -1,3 +1,5 @@
+基于 https://github.com/vitozyf/lucky-draw 修改了一些样式
+
 ## 定制化开发请联系 vito.z@qq.com
 
 ## 年会抽奖
