@@ -15,6 +15,19 @@
             >
                 (点击号码可以删除)
             </span>
+
+            <button
+                @click="exportJSON"
+                :style="{
+                    float: 'right',
+                    marginRight: '30px',
+                    width: '88px',
+                    height: '30px',
+                    cursor: 'pointer'
+                }"
+            >
+                导出 json
+            </button>
         </div>
         <div
             v-for="(item, index) in resultList"
@@ -47,6 +60,7 @@
 </template>
 <script>
 import { conversionCategoryName, getDomData } from '@/helper/index';
+import FileSaver from 'file-saver';
 export default {
     name: 'c-Result',
     props: {
@@ -79,6 +93,13 @@ export default {
         }
     },
     methods: {
+        exportJSON() {
+            // 将json转换成字符串
+            const data = JSON.stringify(this.resultList);
+            const blob = new Blob([data], { type: '' });
+            // const textStr = 'aaaaa,bbbbbbb,cccccc'
+            FileSaver.saveAs(blob, 'test.json');
+        },
         deleteRes(event, row) {
             const Index = getDomData(event.target, 'res');
             if (!Index) {
