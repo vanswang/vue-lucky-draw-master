@@ -66,8 +66,12 @@ export default {
     position: relative;
     overflow: hidden;
     .el-carousel {
-        width: 80vw;
+        // width: 80vw;
+        width: calc(100vw - 360px);
         margin: 0 auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     .item {
         text-align: center;
